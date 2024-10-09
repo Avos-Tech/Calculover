@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Love Calculator from Avos_Cipher</title> 
+  <link rel="stylesheet" href="styles.css"> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff4081, #ff80ab);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ff80ab;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #ff4081;
+}
+
+.result {
+    font-size: 2em;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}</style></head> 
+ <body> 
+  <div class="container"> 
+   <h1> ❤️𝐋𝐨𝐯𝐞❤️ CALCULOVER</h1> 
+   <h2>📨from Avos Cipher</h2> 
+   <form id="loveForm"> 
+    <input type="text" id="name1" placeholder="Your Name" required> 
+    <input type="text" id="name2" placeholder="Your Partner's Name" required> <button type="submit">Calculate</button> 
+   </form> 
+   <div id="result"></div> 
+  </div> 
+  <script src="script.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">document.getElementById('loveForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const name1 = document.getElementById('name1').value.trim();
+    const name2 = document.getElementById('name2').value.trim();
+    
+    if (name1 === '' || name2 === '') {
+        alert('Please enter both names');
+        return;
+    }
+    
+    const loveScore = calculateLoveScore(name1, name2);
+    
+    document.getElementById('result').textContent = `${name1} and ${name2} have a love score of ${loveScore}%`;
+});
+
+function calculateLoveScore(name1, name2) {
+    const combinedNames = name1.toLowerCase() + name2.toLowerCase();
+    let sum = 0;
+    
+    for (let i = 0; i < combinedNames.length; i++) {
+        sum += combinedNames.charCodeAt(i);
+    }
+    
+    return sum % 101; // Return a percentage between 0 and 100
+}</script></body></html>
